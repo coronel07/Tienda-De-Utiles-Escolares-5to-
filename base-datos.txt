@@ -1,0 +1,42 @@
+CREATE DATABASE IF NOT EXISTS tienda_utiles;
+USE tienda_utiles;
+
+-- Tabla de productos
+CREATE TABLE productos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  descripcion TEXT,
+  precio DECIMAL(10,2) NOT NULL,
+  stock INT DEFAULT 0,
+  imagen VARCHAR(255)
+);
+
+-- Tabla de usuarios
+CREATE TABLE usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  rol ENUM('cliente', 'admin') DEFAULT 'cliente'
+);
+
+-- Tabla de pedidos
+CREATE TABLE pedidos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT NOT NULL,
+  fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+  total DECIMAL(10,2),
+  estado ENUM('pendiente','pagado','enviado','cancelado') DEFAULT 'pendiente',
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+-- Tabla de detalle de pedido
+CREATE TABLE detalle_pedido (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  pedido_id INT NOT NULL,
+  producto_id INT NOT NULL,
+  cantidad INT NOT NULL,
+  precio_unitario DECIMAL(10,2) NOT NULL,
+  FOREIGN KEY (pedido_id) REFERENCES pedidos(id),
+  FOREIGN KEY (producto_id) REFERENCES productos(id)
+);

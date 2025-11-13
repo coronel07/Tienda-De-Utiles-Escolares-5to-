@@ -1,0 +1,273 @@
+/* ======= RESET GENERAL ======= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ======= BODY ======= */
+body {
+    background-color: #111;
+    /* Fondo general oscuro */
+    color: #f5f5f5;
+}
+
+/* ======= NAVBAR ======= */
+.navbar {
+    background-color: #0a0a0a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    border-bottom: 3px solid #0057B8;
+    /* Azul institucional */
+}
+
+.navbar a {
+    color: #eaeaea;
+    text-decoration: none;
+    margin-right: 25px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #0057B8;
+}
+
+.navbar a.activo {
+    border-bottom: 3px solid #0057B8;
+    padding-bottom: 3px;
+    color: white;
+}
+
+.navbar .nav-derecha button {
+    margin-left: 10px;
+    background-color: #0057B8;
+    border: none;
+    color: white;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.navbar .nav-derecha button:hover {
+    background-color: #0070f3;
+}
+
+/* ======= CONTENIDO PRINCIPAL ======= */
+.contenido {
+    display: flex;
+    padding: 25px;
+    gap: 25px;
+}
+
+/* ======= SIDEBAR ======= */
+.sidebar {
+    background-color: #1c1c1c;
+    padding: 20px;
+    width: 260px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    height: fit-content;
+}
+
+.sidebar h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #0057B8;
+    display: inline-block;
+    padding-bottom: 3px;
+}
+
+.filtro-etiqueta {
+    background-color: #0057B8;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filtro-etiqueta .x {
+    cursor: pointer;
+    color: #ff5555;
+    font-size: 18px;
+}
+
+.filtro-precio label,
+.filtro-color label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+    color: #f5f5f5;
+}
+
+.filtro-precio .rango {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filtro-precio input[type=range] {
+    width: 100%;
+    margin: 0 10px;
+    accent-color: #0057B8;
+}
+
+.checkboxes label {
+    display: block;
+    margin-bottom: 6px;
+    cursor: pointer;
+    color: #ddd;
+}
+
+/* ======= SECCIÓN PRODUCTOS ======= */
+.productos {
+    flex: 1;
+    background-color: #1a1a1a;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ======= BUSCADOR Y BOTONES ======= */
+.busqueda-filtros {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.buscador input {
+    padding: 9px;
+    width: 220px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background-color: #121212;
+    color: white;
+    transition: 0.3s;
+}
+
+.buscador input:focus {
+    outline: none;
+    border-color: #0057B8;
+    box-shadow: 0 0 6px #0057B8;
+}
+
+.buscador button {
+    padding: 9px 12px;
+    background-color: #0057B8;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+}
+
+.buscador button:hover {
+    background-color: #0070f3;
+}
+
+.orden button {
+    margin-left: 10px;
+    padding: 9px 14px;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #eee;
+    transition: 0.3s;
+}
+
+.orden button:hover {
+    background-color: #0057B8;
+    border-color: #0057B8;
+}
+
+/* ======= GRILLA DE PRODUCTOS ======= */
+.grilla {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card .nombre {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #222;
+}
+
+.card .precio {
+    color: #0057B8;
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+/* ======= SIN RESULTADOS ======= */
+.sin-resultados {
+    text-align: center;
+    color: #bbb;
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+/* ======= FOOTER ======= */
+footer {
+    background-color: #0a0a0a;
+    color: #ccc;
+    text-align: center;
+    padding: 25px 10px;
+    margin-top: 40px;
+    border-top: 2px solid #0057B8;
+    font-size: 14px;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #0057B8;
+    text-decoration: underline;
+}
+
+
+.logo-navbar {
+    height: 26px;
+    width: auto;
+    vertical-align: middle;
+}

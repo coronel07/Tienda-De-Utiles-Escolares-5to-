@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda Digital</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" href="../static/img/LogoITR-60.png" type="image/png">
+</head>
+
+<body>
+    <!-- Barra superior -->
+    <header class="navbar">
+        <div class="nav-izquierda">
+            <img src="../static/img/LogoITR-60.png" class="logo-navbar">
+        </div>
+        <div class="nav-derecha">
+            <a href="#" class="activo">Productos</a>
+            <a href="#">Panel de administración</a>
+            <a href="#">Carrito</a>
+            <button>Iniciar sesión</button>
+            <button>Registrar</button>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="contenido">
+        <!-- Filtros a la izquierda -->
+        <aside class="sidebar">
+            <h3>Productos</h3>
+            <div class="filtro-etiqueta">Lo más popular!!! <span class="x">✕</span></div>
+
+            <div class="filtro-precio">
+                <label>Precio</label>
+                <div class="rango">
+                    <span>0</span>
+                    <input type="range" min="0" max="50000" value="50000">
+                    <span>50.000</span>
+                </div>
+            </div>
+
+            <div class="filtro-color">
+                <label>Categorías</label>
+                <div class="checkboxes">
+                    <label><input type="checkbox" checked> Útiles</label>
+                    <label><input type="checkbox" checked> Ropa</label>
+                    <label><input type="checkbox" checked> Otros</label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Sección principal de productos -->
+        <section class="productos">
+            <div class="busqueda-filtros">
+                <div class="buscador">
+                    <form action="/" method="get">
+                        <input type="text" name="q" placeholder="Buscar">
+                        <button type="submit">🔍</button>
+                    </form>
+                </div>
+                <div class="orden">
+                    <a href="/?orden=mayor"><button>Mayor precio</button></a>
+                    <a href="/?orden=menor"><button>Menor precio</button></a>
+                    <a href="/?orden=antiguo"><button>Más antiguo</button></a>
+                </div>
+            </div>
+
+            <div class="grilla">
+                {% for p in productos %}
+                <div class="card">
+                    <img src="{{ url_for('static', filename='img/' + p.imagen) }}" alt="{{ p.nombre }}">
+                    <p class="nombre">{{ p.nombre }}</p>
+                    <p class="precio">${{ "{:,.0f}".format(p.precio) }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
