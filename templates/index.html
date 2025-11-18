@@ -1,81 +1,86 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "base.html" %}
+{% block title %}index{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Tienda Digital</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="icon" href="../static/img/LogoITR-60.png" type="image/png">
-</head>
+{% block content %}
 
-<body>
-    <!-- Barra superior -->
-    <header class="navbar">
-        <div class="nav-izquierda">
-            <img src="../static/img/LogoITR-60.png" class="logo-navbar">
+
+
+<!-- Filtros a la izquierda -->
+<aside class="sidebar">
+
+    <h3>Productos</h3>
+
+    <form method="get" action="{{ url_for('index') }}" id="filtrosForm">
+
+        <label>Buscar</label>
+        <input type="text" name="q" value="{{ busqueda }}" onchange="this.form.submit()">
+
+        <br><br>
+
+        <label>Precio máximo</label>
+        <span>0</span>
+
+        <input type="range" name="precio" min="0" max="50000" value="{{ precio_max }}"
+            oninput="this.nextElementSibling.innerText = this.value" onchange="this.form.submit()">
+
+        <span>{{ precio_max }}</span>
+
+        <br><br>
+
+        <label>Categorías</label>
+        <div class="checkboxes">
+            {% for c in categorias %}
+            <label>
+                <input type="checkbox" name="categoria" value="{{ c.id }}" {% if c.id|string in
+                    request.args.getlist('categoria') %}checked{% endif %} onchange="this.form.submit()">
+                {{ c.nombre }}
+            </label>
+            {% endfor %}
         </div>
-        <div class="nav-derecha">
-            <a href="#" class="activo">Productos</a>
-            <a href="#">Panel de administración</a>
-            <a href="#">Carrito</a>
-            <button>Iniciar sesión</button>
-            <button>Registrar</button>
+
+    </form>
+
+</aside>
+
+<!-- Sección principal de productos -->
+<section class="productos">
+
+    <div class="busqueda-filtros">
+
+        <div class="buscador">
+            <form action="{{ url_for('index') }}" method="get">
+                <input type="text" name="q" placeholder="Buscar">
+                <button type="submit">🔍</button>
+            </form>
         </div>
-    </header>
 
-    <!-- Contenido principal -->
-    <main class="contenido">
-        <!-- Filtros a la izquierda -->
-        <aside class="sidebar">
-            <h3>Productos</h3>
-            <div class="filtro-etiqueta">Lo más popular!!! <span class="x">✕</span></div>
+        <div class="orden">
+            <a href="/?orden=mayor"><button type="button">Mayor precio</button></a>
+            <a href="/?orden=menor"><button type="button">Menor precio</button></a>
+            <a href="/?orden=antiguo"><button type="button">Más antiguo</button></a>
+        </div>
 
-            <div class="filtro-precio">
-                <label>Precio</label>
-                <div class="rango">
-                    <span>0</span>
-                    <input type="range" min="0" max="50000" value="50000">
-                    <span>50.000</span>
-                </div>
-            </div>
+    </div>
 
-            <div class="filtro-color">
-                <label>Categorías</label>
-                <div class="checkboxes">
-                    <label><input type="checkbox" checked> Útiles</label>
-                    <label><input type="checkbox" checked> Ropa</label>
-                    <label><input type="checkbox" checked> Otros</label>
-                </div>
-            </div>
-        </aside>
+    <div class="grilla">
+        {% for p in productos %}
+        <a href="{{ url_for('producto', id=p.id) }}" class="card-link">
+            <div class="card">
+                <img src="{{ url_for('static', filename='img/' + p.imagen) }}" alt="{{ p.nombre }}">
 
-        <!-- Sección principal de productos -->
-        <section class="productos">
-            <div class="busqueda-filtros">
-                <div class="buscador">
-                    <form action="/" method="get">
-                        <input type="text" name="q" placeholder="Buscar">
-                        <button type="submit">🔍</button>
-                    </form>
-                </div>
-                <div class="orden">
-                    <a href="/?orden=mayor"><button>Mayor precio</button></a>
-                    <a href="/?orden=menor"><button>Menor precio</button></a>
-                    <a href="/?orden=antiguo"><button>Más antiguo</button></a>
-                </div>
-            </div>
+                <p class="nombre">{{ p.nombre }}</p>
 
-            <div class="grilla">
-                {% for p in productos %}
-                <div class="card">
-                    <img src="{{ url_for('static', filename='img/' + p.imagen) }}" alt="{{ p.nombre }}">
-                    <p class="nombre">{{ p.nombre }}</p>
-                    <p class="precio">${{ "{:,.0f}".format(p.precio) }}</p>
-                </div>
-                {% endfor %}
-            </div>
-        </section>
-    </main>
-</body>
+                <p class="precio">
+                    ${{ "{:,.0f}".format(p.precio) }}
+                </p>
+            </div>  
+        </a>
+        {% endfor %}
+    </div>
 
-</html>
+
+</section>
+
+
+
+{% endblock %}

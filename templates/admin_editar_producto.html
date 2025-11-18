@@ -1,0 +1,52 @@
+{% extends "admin_base.html" %}
+{% set section = "productos" %}
+
+{% block contenido %}
+
+<h2 class="titulo-admin">Editar Producto</h2>
+
+<div class="form-card">
+    <form action="{{ url_for('admin_editar_producto', id=producto.id) }}" method="POST" enctype="multipart/form-data">
+
+        <div class="form-grupo">
+            <label>Nombre del producto</label>
+            <input type="text" name="nombre" value="{{ producto.nombre }}" required>
+        </div>
+
+        <div class="form-grupo">
+            <label>Precio</label>
+            <input type="number" name="precio" step="0.01" value="{{ producto.precio }}" required>
+        </div>
+
+        <div class="form-grupo">
+            <label>Categoría</label>
+            <select name="categoria" required>
+                <option value="Útiles" {{ "selected" if producto.categoria == "Útiles" else "" }}>Útiles</option>
+                <option value="Mochilas" {{ "selected" if producto.categoria == "Mochilas" else "" }}>Mochilas</option>
+                <option value="Tecnología" {{ "selected" if producto.categoria == "Tecnología" else "" }}>Tecnología</option>
+            </select>
+        </div>
+
+        <div class="form-grupo">
+            <label>Descripción</label>
+            <textarea name="descripcion" rows="4">{{ producto.descripcion }}</textarea>
+        </div>
+
+        <div class="form-grupo">
+            <label>Imagen actual</label>
+            <img src="{{ url_for('static', filename='img/' + producto.imagen) }}" 
+                 alt="{{ producto.nombre }}" 
+                 style="width: 120px; border-radius: 8px;">
+        </div>
+
+        <div class="form-grupo">
+            <label>Subir nueva imagen (opcional)</label>
+            <input type="file" name="imagen" accept="image/*">
+        </div>
+        
+
+        <button type="submit" class="btn-guardar">Guardar Cambios</button>
+    </form>
+</div>
+
+{% endblock %}

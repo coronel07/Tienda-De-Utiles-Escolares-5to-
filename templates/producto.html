@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Carrito{% endblock %}
+
+{% block content %}
+
+    <!-- Imagen -->
+    <div class="producto-img">
+        <img src="{{ url_for('static', filename='img/' + producto.imagen) }}" alt="{{ producto.nombre }}">
+    </div>
+
+    <!-- Info del producto -->
+    <div class="producto-info">
+
+        <!-- Nombre -->
+        <h2>{{ producto.nombre }}</h2>
+
+        <!-- Stock -->
+        {% if producto.stock > 0 %}
+        <span class="badge-stock">En stock</span>
+        {% else %}
+        <span class="badge-no-stock">Sin stock</span>
+        {% endif %}
+
+        <!-- Precio -->
+        <p class="precio">
+            ${{ "{:,.0f}".format(producto.precio) }}
+        </p>
+
+        <!-- Select dinámico de colores -->
+        {% if producto.colores %}
+        <div class="selector">
+            <label>Color</label>
+            <select name="color">
+                {% for color in producto.colores %}
+                <option value="{{ color }}">{{ color }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% endif %}
+
+        <!-- Select dinámico de talles -->
+        {% if producto.talles %}
+        <div class="selector">
+            <label>Talle</label>
+            <select name="talle">
+                {% for t in producto.talles %}
+                <option value="{{ t }}">{{ t }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% endif %}
+
+        <!-- Botón agregar -->
+        <form action="{{ url_for('agregar_carrito', id=producto.id) }}" method="POST">
+            <button class="btn-agregar">Agregar al carrito</button>
+        </form>
+
+        <!-- Características -->
+        {% if producto.descripcion %}
+        <div class="caracteristicas">
+            <h4>Descripción</h4>
+            <p>{{ producto.descripcion }}</p>
+        </div>
+        {% endif %}
+
+    </div>
+
+{% endblock %}

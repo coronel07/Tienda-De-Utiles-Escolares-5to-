@@ -271,3 +271,549 @@ footer a:hover {
     width: auto;
     vertical-align: middle;
 }
+
+/* Contenedor general */
+.carrito-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #1e1e1e;
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+/* Botón volver */
+.volver {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #00aaff;
+    text-decoration: none;
+    font-size: 18px;
+}
+.volver:hover {
+    text-decoration: underline;
+}
+
+/* Título */
+.carrito-container h1 {
+    margin-bottom: 25px;
+    font-size: 32px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+}
+
+/* Cada ítem del carrito */
+.item-carrito {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: #2b2b2b;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+.item-carrito:hover {
+    background: #333;
+}
+
+/* Imagen del producto */
+.item-carrito img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Info del producto */
+.item-info h3 {
+    margin: 0;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+.item-info p {
+    margin: 5px 0;
+    color: #ccc;
+}
+.item-info strong {
+    color: #00d46a;
+}
+
+/* Total */
+.total {
+    text-align: right;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 25px;
+    border-top: 2px solid #444;
+    padding-top: 15px;
+}
+
+/* Botón de pago */
+.btn-pago {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    background: #00aaff;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-pago:hover {
+    background: #0088cc;
+}
+
+
+/* PRODUCTO */
+/* ======== CONTENEDOR PRINCIPAL ======== */
+.producto-detalle {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    background: #1b1b1b;
+    border-radius: 12px;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* ======== IMAGEN ======== */
+.producto-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.producto-img img {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 15px;
+}
+
+/* ======== INFO ======== */
+.producto-info {
+    flex: 1;
+    color: #fff;
+}
+
+.producto-info h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* Badge verde */
+.badge-stock {
+    display: inline-block;
+    background: #2ecc71;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+/* Precio */
+.precio {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.producto-id {
+    font-size: 14px;
+    opacity: .7;
+    margin-bottom: 20px;
+}
+
+/* ======== SELECTORES ======== */
+.selector {
+    margin-bottom: 15px;
+}
+
+.selector label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    opacity: .8;
+}
+
+.selector select {
+    width: 160px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #2b2b2b;
+    color: #fff;
+}
+
+/* ======== BOTÓN ======== */
+.btn-agregar {
+    width: 100%;
+    padding: 12px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: 0.15s;
+}
+
+.btn-agregar:hover {
+    background: #e0e0e0;
+}
+
+/* ======== CARACTERISTICAS ======== */
+.caracteristicas {
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 15px;
+    background: #222;
+}
+
+.caracteristicas h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.caracteristicas p {
+    margin: 0;
+    opacity: .9;
+}
+
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 900px) {
+    .producto-detalle {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .selector select {
+        width: 100%;
+    }
+}
+
+
+/*  peddos*/
+
+/* Título */
+.titulo-admin {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 30px;
+    color: #f5e6ff;
+}
+
+/* Tabla */
+.tabla-admin table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla-admin th {
+    background: #242424;
+    padding: 15px;
+    text-align: left;
+    font-size: 1.1rem;
+    color: #dcdcdc;
+}
+
+.tabla-admin td {
+    padding: 14px;
+    border-top: 1px solid #333;
+    color: #e6e6e6;
+}
+
+.tabla-admin tr:hover td {
+    background: #2a2a2a;
+}
+
+
+/*Productos*/
+
+.btn-agregar {
+    display: inline-block;
+    background: #6a00ff;
+    padding: 10px 18px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-editar {
+    background: #0077ff;
+    border: none;
+    padding: 6px 12px;
+    margin-right: 5px;
+    border-radius: 4px;
+    color: white;
+}
+
+.btn-eliminar {
+    background: #ff0033;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+}
+
+/*usuario*/
+
+/* ============================
+   ESTILO GENERAL
+============================ */
+body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+h2.titulo-admin {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 30px;
+    color: #dcdcff;
+}
+
+
+/* ============================
+   HEADER DEL PANEL
+============================ */
+.admin-header {
+    background: #0d0d0d;
+    border-bottom: 2px solid #333;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-panel {
+    height: 50px;
+}
+
+.admin-header h1 {
+    font-size: 1.8rem;
+    color: #c6ffd3;
+}
+
+.btn-volver {
+    background: #e1e1e1;
+    color: #000;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* ============================
+   LAYOUT DEL PANEL
+============================ */
+.admin-layout {
+    display: flex;
+    min-height: calc(100vh - 82px);
+}
+
+
+/* ============================
+   SIDEBAR
+============================ */
+.admin-sidebar {
+
+    /* Que se vean bien separadas */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Cada link será una "card" */
+.sidebar-link {
+    padding: 18px 14px;
+    background: #222;
+    border-radius: 12px;
+
+    text-decoration: none;
+    color: #ccc;
+    font-size: 1.15rem;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    transition: 0.25s ease;
+}
+
+/* Hover más marcado */
+.sidebar-link:hover {
+    background: #333;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* Opción activa (resaltada) */
+.sidebar-link.activo {
+    background: #444;
+    color: white;
+    border-left: 6px solid #fff;
+
+    transform: scale(1.02);
+}
+
+
+
+/* ============================
+   CONTENIDO PRINCIPAL
+============================ */
+.admin-content {
+    flex: 1;
+    padding: 35px;
+}
+
+
+/* ============================
+   TABLAS
+============================ */
+.tabla-admin table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla-admin th {
+    background: #242424;
+    padding: 15px;
+    text-align: left;
+    font-size: 1.1rem;
+    color: #dcdcdc;
+}
+
+.tabla-admin td {
+    padding: 14px;
+    border-top: 1px solid #333;
+    color: #e6e6e6;
+}
+
+.tabla-admin tr:hover td {
+    background: #2a2a2a;
+}
+
+
+/* ============================
+   BOTONES ACCIONES
+============================ */
+.btn-agregar {
+    display: inline-block;
+    background: #6a00ff;
+    padding: 10px 18px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-editar {
+    background: #0077ff;
+    border: none;
+    padding: 6px 12px;
+    margin-right: 5px;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-eliminar {
+    background: #ff0033;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* ============================
+   GRÁFICOS (Chart.js)
+============================ */
+canvas {
+    background: #1c1c1c;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+
+
+/* ======= FORMULARIO CARD ======= */
+.form-card {
+    background: #333;
+    padding: 25px;
+    width: 500px;
+    margin: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.titulo-admin {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.btn-guardar {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-guardar:hover {
+    background: #218838;
+}

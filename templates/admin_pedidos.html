@@ -1,0 +1,54 @@
+{% extends "admin_base.html" %}
+{% set section = "pedidos" %}
+
+{% block contenido %}
+
+<h2 class="titulo-admin">Pedidos recientes</h2>
+
+<div class="tabla-admin">
+    <table>
+        <thead>
+            <tr>
+                <th>N° de pedido</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <th>Producto/s</th>
+                <th>Estado del pedido</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Ejemplo de filas; luego se reemplazará con datos reales -->
+            <tr>
+                <td>#001</td>
+                <td>Juan Pérez</td>
+                <td>12/03/2025</td>
+                <td>$14.500</td>
+                <td>Producto 1, Producto 2</td>
+                <td>En proceso</td>
+            </tr>
+
+            <tr>
+                <td>#002</td>
+                <td>María López</td>
+                <td>13/03/2025</td>
+                <td>$8.900</td>
+                <td>Producto A</td>
+                <td>Entregado</td>
+            </tr>
+
+            <tr>
+                <td>#003</td>
+                <td>Carlos Díaz</td>
+                <td>14/03/2025</td>
+                <td>$21.200</td>
+                <td>Producto X, Producto Y</td>
+                <td>Cancelado</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+<header class="navbar">
+    <div class="nav-izquierda">
+        <img src="{{ url_for('static', filename='img/LogoITR-60.png') }}" class="logo-navbar">
+    </div>
+
+    <div class="nav-derecha">
+        <a href="/" class="{% if active=='productos' %}activo{% endif %}">Productos</a>
+        <a href="{{ url_for('admin_dashboard') }}" class="{% if section=='productos' %}activo{% endif %}
+">Panel de administración</a>
+        <a href="{{ url_for('carrito') }}" class="{% if active=='carrito' %}activo{% endif %}">Carrito</a>
+
+        <button>Iniciar sesión</button>
+        <button>Registrar</button>
+    </div>
+</header>

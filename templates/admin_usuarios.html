@@ -1,0 +1,49 @@
+{% extends "admin_base.html" %}
+{% set section = "usuarios" %}
+
+{% block contenido %}
+
+<h2 class="titulo-admin">Gestión de Usuarios</h2>
+
+<div class="tabla-admin">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Fecha de registro</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Nicolás Coronel</td>
+                <td>nico@example.com</td>
+                <td>2025-02-01</td>
+                <td>Admin</td>
+                <td>
+                    <button class="btn-editar">Editar</button>
+                    <button class="btn-eliminar">Eliminar</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>María López</td>
+                <td>maria@example.com</td>
+                <td>2025-02-11</td>
+                <td>Cliente</td>
+                <td>
+                    <button class="btn-editar">Editar</button>
+                    <button class="btn-eliminar">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
