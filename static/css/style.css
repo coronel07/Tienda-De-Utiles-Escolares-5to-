@@ -280,7 +280,7 @@ footer a:hover {
     background: #1e1e1e;
     border-radius: 15px;
     color: #fff;
-    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 /* Botón volver */
@@ -291,6 +291,7 @@ footer a:hover {
     text-decoration: none;
     font-size: 18px;
 }
+
 .volver:hover {
     text-decoration: underline;
 }
@@ -314,6 +315,7 @@ footer a:hover {
     margin-bottom: 20px;
     transition: 0.2s;
 }
+
 .item-carrito:hover {
     background: #333;
 }
@@ -332,10 +334,12 @@ footer a:hover {
     font-size: 22px;
     margin-bottom: 8px;
 }
+
 .item-info p {
     margin: 5px 0;
     color: #ccc;
 }
+
 .item-info strong {
     color: #00d46a;
 }
@@ -363,6 +367,7 @@ footer a:hover {
     cursor: pointer;
     transition: 0.2s;
 }
+
 .btn-pago:hover {
     background: #0088cc;
 }
@@ -662,7 +667,7 @@ h2.titulo-admin {
     color: #ccc;
     font-size: 1.15rem;
 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
     transition: 0.25s ease;
 }
 
@@ -670,7 +675,7 @@ h2.titulo-admin {
 .sidebar-link:hover {
     background: #333;
     transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 /* Opción activa (resaltada) */
@@ -775,10 +780,31 @@ canvas {
     width: 500px;
     margin: auto;
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.10);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.btn-finalizar {
+    background: linear-gradient(to right, #10b981, #059669);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+
+}
+
+.btn-finalizar:hover {
+    background: linear-gradient(to right, #059669, #047857);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .titulo-admin {
@@ -816,4 +842,46 @@ canvas {
 
 .btn-guardar:hover {
     background: #218838;
+}
+
+.btn-registrar {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: #0077ff;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-iniciar {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: #0077ff;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.btn-iniciar:hover {
+    background: #0077ff
+}
+
+.bienvenida {
+    margin-right: 15px;
+    font-weight: bold;
+    color: #2a78ff;
+}
+
+.btn-cerrar {
+    color: #ff4444;
+    font-weight: bold;
+}
+
+.btn-cerrar:hover {
+    color: #cc0000;
 }

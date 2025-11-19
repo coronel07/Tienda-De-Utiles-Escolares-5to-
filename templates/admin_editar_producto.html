@@ -20,10 +20,12 @@
 
         <div class="form-grupo">
             <label>Categoría</label>
-            <select name="categoria" required>
-                <option value="Útiles" {{ "selected" if producto.categoria == "Útiles" else "" }}>Útiles</option>
-                <option value="Mochilas" {{ "selected" if producto.categoria == "Mochilas" else "" }}>Mochilas</option>
-                <option value="Tecnología" {{ "selected" if producto.categoria == "Tecnología" else "" }}>Tecnología</option>
+            <select name="categoria_id" required>
+                {% for c in categorias %}
+                <option value="{{ c.id }}" {% if producto.categoria_id==c.id %}selected{% endif %}>
+                    {{ c.nombre }}
+                </option>
+                {% endfor %}
             </select>
         </div>
 
@@ -34,19 +36,25 @@
 
         <div class="form-grupo">
             <label>Imagen actual</label>
-            <img src="{{ url_for('static', filename='img/' + producto.imagen) }}" 
-                 alt="{{ producto.nombre }}" 
-                 style="width: 120px; border-radius: 8px;">
+            <img src="{{ url_for('static', filename='img/' + producto.imagen) }}"
+                style="width: 120px; border-radius:8px;">
         </div>
 
         <div class="form-grupo">
-            <label>Subir nueva imagen (opcional)</label>
+            <label>Subir nueva imagen</label>
             <input type="file" name="imagen" accept="image/*">
         </div>
-        
+
+        <div class="form-grupo">
+            <label>Stock</label>
+            <input type="number" name="stock" value="{{ producto.stock }}" required min="0">
+        </div>
 
         <button type="submit" class="btn-guardar">Guardar Cambios</button>
     </form>
+
+
+
 </div>
 
 {% endblock %}

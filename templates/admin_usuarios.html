@@ -19,29 +19,19 @@
         </thead>
 
         <tbody>
+            {% for u in usuarios %}
             <tr>
-                <td>1</td>
-                <td>Nicolás Coronel</td>
-                <td>nico@example.com</td>
-                <td>2025-02-01</td>
-                <td>Admin</td>
+                <td>{{ u.id }}</td>
+                <td>{{ u.nombre }}</td>
+                <td>{{ u.email }}</td>
+                <td>{{ u.fecha_registro }}</td>
+                <td>{{ u.rol }}</td>
                 <td>
-                    <button class="btn-editar">Editar</button>
-                    <button class="btn-eliminar">Eliminar</button>
+                    <a href="/admin/usuarios/editar/{{ u.id }}" class="btn-editar">Editar</a>
+                    <a href="/admin/usuarios/eliminar/{{ u.id }}" class="btn-eliminar">Eliminar</a>
                 </td>
             </tr>
-
-            <tr>
-                <td>2</td>
-                <td>María López</td>
-                <td>maria@example.com</td>
-                <td>2025-02-11</td>
-                <td>Cliente</td>
-                <td>
-                    <button class="btn-editar">Editar</button>
-                    <button class="btn-eliminar">Eliminar</button>
-                </td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>

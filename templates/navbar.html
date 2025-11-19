@@ -5,11 +5,30 @@
 
     <div class="nav-derecha">
         <a href="/" class="{% if active=='productos' %}activo{% endif %}">Productos</a>
-        <a href="{{ url_for('admin_dashboard') }}" class="{% if section=='productos' %}activo{% endif %}
-">Panel de administración</a>
-        <a href="{{ url_for('carrito') }}" class="{% if active=='carrito' %}activo{% endif %}">Carrito</a>
+        <a href="{{ url_for('admin_dashboard') }}" class="{% if section=='productos' %}activo{% endif %}">
+            Panel de administración
+        </a>
+        <a href="{{ url_for('carrito') }}" class="{% if active=='carrito' %}activo{% endif %}">
+            Carrito
+        </a>
 
-        <button>Iniciar sesión</button>
-        <button>Registrar</button>
+        {% if session.get("usuario_nombre") %}
+            <span class="bienvenida">
+                Bienvenido, {{ session.get("usuario_nombre") }}
+            </span>
+
+            <a href="{{ url_for('logout') }}" class="btn-cerrar">
+                Cerrar sesión
+            </a>
+
+        {% else %}
+            <a href="{{ url_for('login') }}" class="btn-iniciar {% if active=='login' %}activo{% endif %}">
+                Iniciar sesión
+            </a>
+
+            <a href="{{ url_for('register') }}" class="btn-registrar {% if active=='register' %}activo{% endif %}">
+                Registrar
+            </a>
+        {% endif %}
     </div>
 </header>

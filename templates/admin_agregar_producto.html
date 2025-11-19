@@ -20,11 +20,11 @@
 
         <div class="form-grupo">
             <label>Categoría</label>
-            <select name="categoria" required>
+            <select name="categoria_id" required>
                 <option value="">Seleccionar</option>
-                <option value="Útiles">Útiles</option>
-                <option value="Mochilas">Mochilas</option>
-                <option value="Tecnología">Tecnología</option>
+                {% for c in categorias %}
+                <option value="{{ c.id }}">{{ c.nombre }}</option>
+                {% endfor %}
             </select>
         </div>
 
@@ -34,12 +34,18 @@
         </div>
 
         <div class="form-grupo">
+            <label>Stock</label>
+            <input type="number" name="stock" required min="0">
+        </div>
+
+        <div class="form-grupo">
             <label>Imagen (archivo)</label>
             <input type="file" name="imagen" accept="image/*" required>
         </div>
 
         <button type="submit" class="btn-guardar">Guardar Producto</button>
     </form>
+
 </div>
 
 {% endblock %}

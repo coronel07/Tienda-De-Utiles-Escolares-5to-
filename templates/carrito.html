@@ -10,30 +10,37 @@
     <h1>Carrito</h1>
 
     {% if items %}
-        {% for item in items %}
-        <div class="item-carrito">
-            
-            <img src="{{ url_for('static', filename='img/' + item.imagen) }}">
+    {% for item in items %}
+    <div class="item-carrito">
 
-            <div class="item-info">
-                <h3>{{ item.nombre }}</h3>
-                <p>{{ item.descripcion }}</p>
-                <p><strong>${{ "{:,.0f}".format(item.precio) }}</strong></p>
-            </div>
+        <img src="{{ url_for('static', filename='img/' + item.imagen) }}">
 
-            <!-- Botón eliminar -->
-            <form action="{{ url_for('eliminar_carrito', id=item.id) }}" method="POST">
-                <button class="btn-eliminar">❌</button>
-            </form>
-
+        <div class="item-info">
+            <h3>{{ item.nombre }}</h3>
+            <p>{{ item.descripcion }}</p>
+            <p><strong>${{ "{:,.0f}".format(item.precio) }}</strong></p>
         </div>
-        {% endfor %}
+
+        <!-- Botón eliminar -->
+        <form action="{{ url_for('eliminar_carrito', id=item.id) }}" method="POST">
+            <button class="btn-eliminar">❌</button>
+        </form>
+
+    </div>
+    {% endfor %}
     {% else %}
-        <p>No hay productos en el carrito.</p>
+    <p>No hay productos en el carrito.</p>
     {% endif %}
 
     <p class="total">Total: ${{ "{:,.0f}".format(total) }}</p>
-    <button class="btn-pago">Confirmar pago</button>
+    <form action="/finalizar_compra" method="POST">
+        <button class="btn-finalizar">Finalizar compra</button>
+    </form>
+
+
+
+
+
 
 </div>
 

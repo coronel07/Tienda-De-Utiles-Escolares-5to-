@@ -14,38 +14,27 @@
                 <th>Fecha</th>
                 <th>Total</th>
                 <th>Producto/s</th>
-                <th>Estado del pedido</th>
+                <th>Estado</th>
             </tr>
         </thead>
 
         <tbody>
-            <!-- Ejemplo de filas; luego se reemplazará con datos reales -->
-            <tr>
-                <td>#001</td>
-                <td>Juan Pérez</td>
-                <td>12/03/2025</td>
-                <td>$14.500</td>
-                <td>Producto 1, Producto 2</td>
-                <td>En proceso</td>
-            </tr>
 
+            {% for p in pedidos %}
             <tr>
-                <td>#002</td>
-                <td>María López</td>
-                <td>13/03/2025</td>
-                <td>$8.900</td>
-                <td>Producto A</td>
-                <td>Entregado</td>
+                <td>#{{ p.id }}</td>
+                <td>{{ p.usuario.nombre }}</td>
+                <td>{{ p.fecha }}</td>
+                <td>${{ p.total }}</td>
+                <td>
+                    {% for item in p.items %}
+                    {{ item.producto.nombre }} (x{{ item.cantidad }}),
+                    {% endfor %}
+                </td>
+                <td>{{ p.estado }}</td>
             </tr>
+            {% endfor %}
 
-            <tr>
-                <td>#003</td>
-                <td>Carlos Díaz</td>
-                <td>14/03/2025</td>
-                <td>$21.200</td>
-                <td>Producto X, Producto Y</td>
-                <td>Cancelado</td>
-            </tr>
 
         </tbody>
     </table>

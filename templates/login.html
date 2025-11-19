@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111;
+            font-family: Arial, sans-serif;
+            color: #e8ffe8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 0px 0px 10px #467;
+        }
+
+        .form-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            width: 350px;
+            backdrop-filter: blur(4px);
+        }
+
+        input {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 12px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            background: #fff;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 25px;
+            background: #b8f8c8;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #a5e9b6;
+        }
+
+        .links {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .links a {
+            color: #7fcfff;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Inicia sesión</h1>
+
+        <div class="form-box">
+
+            <form action="{{ url_for('login') }}" method="POST">
+
+                <input type="email" name="email" placeholder="Email" required>
+
+                <input type="password" name="password" placeholder="Contraseña" required>
+
+                <button type="submit">Confirmar</button>
+            </form>
+
+            <div class="links">
+                <p>¿No tenés cuenta? <a href="{{ url_for('register') }}">Registrate</a></p>
+                <p>¿Querés ayudarnos? <a href="#">Unetenos</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
